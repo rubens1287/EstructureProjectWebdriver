@@ -1,0 +1,26 @@
+package com.selenium.incial;
+
+import org.testng.annotations.Test;
+
+public class SecundClass {
+	
+	@Test(priority=1)
+	public void TC_5(){
+		System.out.println("TC_05");
+	}
+	
+	@Test(priority=2)
+	public void TC_6(){
+		System.out.println("TC_06");
+	}
+	
+	@Test(priority=3)
+	public void TC_7(){
+		System.out.println("TC_07");
+	}
+	
+	@Test(priority=8)
+	public void TC_4(){
+		System.out.println("TC_08");
+	}
+}

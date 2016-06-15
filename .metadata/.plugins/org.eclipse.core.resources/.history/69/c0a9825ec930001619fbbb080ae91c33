@@ -1,0 +1,29 @@
+package com.selenium.incial;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		
+		FisrtClass classe1 = new FisrtClass();
+		SecundClass classe2 = new SecundClass();
+		TrethTest classe3 = new TrethTest();
+		
+		classe1.TC_1();
+		classe1.TC_2();
+		classe1.TC_3();
+		classe1.TC_4();
+		
+		classe2.TC_5();
+		classe2.TC_6();
+		classe2.TC_7();
+		classe2.TC_8();
+		
+		classe3.TC_9();
+		classe3.TC_10();
+		classe3.TC_11();
+		classe3.TC_12();
+		
+		
+	}
+
+}

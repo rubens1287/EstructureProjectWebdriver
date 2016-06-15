@@ -1,0 +1,51 @@
+/**
+ * 
+ */
+package com.webcom.test;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.webcom.page.LoginPage;
+
+/**
+ * @author guilherme.cutovoi
+ *
+ * Realiza o login e valida se a mesma foi efetuada com sucesso
+ *
+ */
+public class VerifyWebComLogin {
+	
+	WebDriver driver;
+	
+	@BeforeTest
+	public void start(){
+		System.setProperty("webdriver.ie.driver","C:\\ProjecWebDriver\\EstructureProjectWebdriver\\Drivers\\IEDriverServer.exe");
+	}
+	
+	@Test
+	public void VerifyValidLogin()
+	{
+		WebDriver driver=new InternetExplorerDriver();
+		driver.manage().window().maximize();
+		driver.get("http://192.168.100.173:8080/webcom/login.do");
+		
+		LoginPage login=new LoginPage(driver);
+		login.TypeUserName();
+		login.TypePassword();
+		login.ClickonLoginButton();
+		
+	}
+	
+	@AfterTest
+	public void CleanUp()
+	{
+		driver.close();
+	}
+	
+}

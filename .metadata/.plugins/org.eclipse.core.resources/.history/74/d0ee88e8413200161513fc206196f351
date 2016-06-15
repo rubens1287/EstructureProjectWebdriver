@@ -1,0 +1,22 @@
+package com.webcom.page;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class CadastroClientePage {
+	
+WebDriver driver;
+	
+	By buttonAdicionaCliente=By.xpath("html/body/div[1]/div/a/input");
+	
+	public CadastroClientePage(WebDriver driver)
+	{
+		this.driver=driver;
+	}
+	
+	public void ClicaButtonAdicionarCliente()
+	{
+		driver.findElement(buttonAdicionaCliente).click();
+	}
+
+}

@@ -1,0 +1,30 @@
+package com.selenium.incial;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+
+public class FisrtClass {
+	
+
+	@Test(priority=1)
+	public void TC_1(){
+		//Assert.fail();
+		System.out.println("TC_01");
+		Assert.assertEquals("teste", "teste1");
+	}
+	
+	@Test(priority=2,dependsOnMethods={"TC_1"})
+	public void TC_2(){
+		System.out.println("TC_02");
+	}
+	
+	@Test(priority=3,dependsOnMethods={"TC_1","TC_2"})
+	public void TC_3(){
+		System.out.println("TC_03");
+	}
+	
+	@Test(priority=4)
+	public void TC_4(){
+		System.out.println("TC_04");
+	}
+}

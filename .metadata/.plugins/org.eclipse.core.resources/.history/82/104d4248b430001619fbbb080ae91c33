@@ -1,0 +1,25 @@
+package com.selenium.incial;
+import org.testng.annotations.Test;
+
+public class FisrtClass {
+	
+	@Test
+	public void TC_1(){
+		System.out.println("TC_01");
+	}
+	
+	@Test
+	public void TC_2(){
+		System.out.println("TC_02");
+	}
+	
+	@Test
+	public void TC_3(){
+		System.out.println("TC_03");
+	}
+	
+	@Test
+	public void TC_4(){
+		System.out.println("TC_01");
+	}
+}

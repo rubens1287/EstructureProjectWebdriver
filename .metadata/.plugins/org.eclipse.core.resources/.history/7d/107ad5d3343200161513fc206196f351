@@ -1,0 +1,24 @@
+/**
+ * 
+ */
+package com.webcom.test;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.annotations.Test;
+
+/**
+ * @author guilherme.cutovoi
+ *
+ * Realiza o login e valida se a mesma foi efetuada com sucesso
+ *
+ */
+public class VerifyWebComLogin {
+	
+	@Test
+	public void VerifyValidLogin()
+	{
+		WebDriver driver=new InternetExplorerDriver();
+	}
+	
+}

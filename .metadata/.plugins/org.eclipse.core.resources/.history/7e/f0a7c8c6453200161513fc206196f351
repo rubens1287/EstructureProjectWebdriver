@@ -1,0 +1,25 @@
+package com.selenium.incial;
+
+import org.testng.annotations.Test;
+
+public class TrethTest {
+	@Test(priority=9)
+	public void TC_9(){
+		System.out.println("TC_09");
+	}
+	
+	@Test(priority=10)
+	public void TC_10(){
+		System.out.println("TC_10");
+	}
+	
+	@Test(priority=11)
+	public void TC_11(){
+		System.out.println("TC_11");
+	}
+	
+	@Test(priority=12)
+	public void TC_12(){
+		System.out.println("TC_12");
+	}
+}

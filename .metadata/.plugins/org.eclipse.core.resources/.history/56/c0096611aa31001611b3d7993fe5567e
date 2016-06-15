@@ -1,0 +1,128 @@
+package com.selenium.incial;
+
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class Acesso {
+	
+	
+	WebDriver driver;
+	
+	@BeforeClass
+	public void start(){
+		System.setProperty("webdriver.ie.driver","C:\\ProjecWebDriver\\EstructureProjectWebdriver\\Drivers\\IEDriverServer.exe");
+	}
+	
+	
+	@Test(priority=1)
+	public void AcessoSistema() throws InterruptedException{
+		
+		driver = new InternetExplorerDriver();
+		driver.manage().deleteAllCookies();
+		
+		//Step 1
+		driver.get("http://192.168.100.173:8080/webcom/login.do");
+		driver.manage().window().maximize();
+		Thread.sleep(2000);
+		String actual = driver.getTitle(); 
+		Assert.assertEquals(actual, "webcom - login");
+		
+		//Step 2
+		WebElement Usuario = driver.findElement(By.name("j_username"));
+		Usuario.clear();
+		Usuario.sendKeys(username);
+		Thread.sleep(1000);
+		
+		WebElement PassWord = driver.findElement(By.name("j_password"));
+		PassWord.clear();
+		PassWord.sendKeys(password);
+		
+		WebElement btnLogar = driver.findElement(By.xpath("html/body/div[1]/div/div/div/form/button"));
+		btnLogar.click();
+		
+		WebElement linkSairText = driver.findElement(By.xpath(".//*[@id='bemvindo']/a"));
+		
+		Assert.assertEquals(linkSairText.getText(), "Sair");		
+		Thread.sleep(3000);
+		
+		}
+	
+	@Test(priority=2,dependsOnMethods={"AcessoSistema"})
+	public void CadastraCliente() throws InterruptedException{
+		
+		//Step 1
+		WebElement btnListCliente = driver.findElement(By.xpath(".//*[@id='navbar-1']/ul[1]/li[2]/a/span"));
+		btnListCliente.click();
+		Thread.sleep(1000);		
+		
+		WebElement btnCliente = driver.findElement(By.xpath(".//*[@id='navbar-1']/ul[1]/li[2]/ul/li[1]/a"));
+		btnCliente.click();
+		WebElement btnCadCliente = driver.findElement(By.xpath("html/body/div[1]/div/a/input"));
+		btnCadCliente.click();
+		WebElement TagText = driver.findElement(By.xpath("html/body/div[1]/div/h1"));
+		Thread.sleep(1000);
+		Assert.assertEquals(TagText.getText(), "Novo Cliente");
+		
+		//Step 2
+		WebElement textBoxNome = driver.findElement(By.id("nome"));
+		textBoxNome.clear();
+		textBoxNome.sendKeys("Rubens de Medeiros Lobo");
+		
+		WebElement textBoxCpf = driver.findElement(By.id("cpf"));
+		textBoxCpf.clear();
+		textBoxCpf.sendKeys("35790149863");
+		
+		WebElement textBoxRg = driver.findElement(By.id("rg"));
+		textBoxRg.clear();
+		textBoxRg.sendKeys("33507313");
+		
+		WebElement btnSalvar = driver.findElement(By.xpath(".//*[@id='cliente']/input"));
+		btnSalvar.click();
+	
+		WebElement getTextPage = driver.findElement(By.xpath("html/body/div[1]/div/h1"));
+		
+		Assert.assertEquals(getTextPage.getText(), "Cadastro de Clientes");
+		
+	}
+	
+	
+	
+	@AfterClass
+	public void finaliza() throws IOException{
+		//deleta Cache
+		//Runtime.getRuntime().exec("RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 255");
+		driver.close();
+		driver.quit();
+	}
+	
+	
+	@DataProvider(name="DataTableImport")
+	public Object[][] DataTableImport(){
+		
+		//Linha depois colunas
+		Object[][] data = new Object[3][2];
+		
+		data[0][0]="admin";
+		data[0][1]="admin";
+		
+		data[1][0]="admin1";
+		data[1][1]="admin1";
+
+		data[2][0]="admin2";
+		data[2][1]="admin2";
+		
+		return data;
+		 
+	}
+		
+}
+

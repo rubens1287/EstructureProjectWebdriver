@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="false">
+  <listeners>
+  	<listener class-name="org.uncommons.reporting.HTMLReporte.class"/>
+  	<listener class-name="org.uncommons.reporting.JUnitXMLReporter.class"/>         
+  </listeners>
+  <test name="Test">
+    <classes>
+      <class name="com.selenium.incial.FisrtClass"/>
+      <class name="com.selenium.incial.SecundClass"/>
+      <class name="com.selenium.incial.TrethTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

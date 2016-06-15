@@ -1,0 +1,28 @@
+package com.selenium.frameworkUtil;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.testng.annotations.Test;
+
+public class Util {
+	
+	public Object[][] DataTabel() throws IOException{
+		
+		FileInputStream excel = new FileInputStream(new File("C:\\Data\\DataTabe.xls"));			
+		HSSFWorkbook workBook = new HSSFWorkbook(excel);			
+		HSSFSheet sheet = workBook.getSheetAt(0);
+		
+		//Linha depois colunas
+		Object[][] data = new Object[0][3];
+		
+		data[0][0] = sheet.getRow(1).getCell(0).getStringCellValue();
+		data[0][1] = sheet.getRow(1).getCell(1).getStringCellValue();
+		data[0][2] = sheet.getRow(1).getCell(2).getStringCellValue();
+		
+		return data;
+	}
+	
+}

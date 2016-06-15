@@ -1,0 +1,18 @@
+package com.selenium.frameworkUtil;
+
+import java.io.IOException;
+
+public class principal {
+
+	public static void main(String[] args) throws IOException {
+
+	Util util = new Util();
+	
+	//String teste[] = util.DataTable();
+
+	//System.out.println(teste[0]);
+	//System.out.println(teste[1]);
+	//System.out.println(teste[2]);
+	}
+
+}

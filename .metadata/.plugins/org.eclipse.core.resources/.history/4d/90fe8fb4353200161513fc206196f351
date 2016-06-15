@@ -1,0 +1,44 @@
+/**
+ * 
+ */
+package com.webcom.page;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+/**
+ * @author guilherme.cutovoi
+ *
+ *
+ *	Esta classe guardara todos os objetos e metodos da pagina de login da apliação
+ */
+public class LoginPage {
+
+	WebDriver driver;
+		
+	By username=By.id("user_login");
+	By password=By.id("user_password");
+	By loginButton=By.xpath("html/body/div[1]/div/div/div/form/button");
+	
+	public LoginPage(WebDriver driver)
+	{
+		this.driver=driver;
+	}
+	
+	public void TypeUserName()
+	{
+		driver.findElement(username).sendKeys("admin");
+	}
+	
+	public void TypePassword()
+	{
+		driver.findElement(password).sendKeys("admin");
+	}
+	public void ClickonLoginButton()
+	{
+		driver.findElement(loginButton).click();
+	}
+	
+		
+	
+}

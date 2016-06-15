@@ -1,0 +1,60 @@
+/**
+ * 
+ */
+package com.webcom.test;
+
+import java.io.IOException;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+import com.framework.util.Util;
+import com.webcom.page.CadastroClientePage;
+import com.webcom.page.ListaCadastroClientePage;
+import com.webcom.page.LoginPage;
+import com.webcom.page.MenuPrincipalPage;
+
+/**
+ * @author Rubens de Medeiros Lobo
+ *
+ *	Caso de teste executa cadastro do cliente
+ *
+ *
+ */
+public class VerifyWebComCadastroCliente {
+
+	
+	public WebDriver driver;
+	
+	@BeforeTest
+	public void start(){
+		System.setProperty("webdriver.ie.driver",".\\Drivers\\IEDriverServer.exe");
+	}
+	
+	@Test(priority=2)
+	public void VerifyValidLogin() throws IOException, InterruptedException
+	{
+		Util util=new Util();
+		String[] dados = util.GetDataTable(".\\DataTable\\DataTabe.xls",13);	
+		driver=new InternetExplorerDriver();
+		driver.manage().window().maximize();
+		driver.get(dados[0]);
+		LoginPage login=new LoginPage(driver);
+		login.LogarPageLogin(dados[1], dados[2]);
+		MenuPrincipalPage menu=new MenuPrincipalPage(driver);
+		menu.NavegarMenuPrincipalCadastroCliente();
+		ListaCadastroClientePage listaCliente=new ListaCadastroClientePage(driver);
+		listaCliente.ClicaButtonAdicionarCliente();
+		CadastroClientePage CadastrarCliente=new CadastroClientePage(driver);
+		CadastrarCliente.EfetuarCadastroCliente(dados[3].trim(), dados[4].trim(), dados[5].trim(), dados[6].trim(), dados[7].trim(), dados[8].trim(), dados[9].trim(), dados[10].trim(), dados[11].trim(), dados[12].trim());
+	}
+	
+	
+	@AfterTest
+	public void CleanUp()
+	{
+		driver.close();
+	}
+}

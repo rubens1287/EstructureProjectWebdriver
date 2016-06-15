@@ -1,0 +1,11 @@
+package com.selenium.incial;
+import org.testng.annotations.Test;
+
+public class FisrtClass {
+	
+	@Test
+	public void TC_1(){
+		System.out.println("TC_01");
+	}
+
+}

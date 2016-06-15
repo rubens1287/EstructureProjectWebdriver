@@ -1,0 +1,37 @@
+/**
+ * 
+ */
+package com.webcom.page;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import com.framework.util.Util;
+
+/**
+ * @author guilherme.cutovoi
+ *
+ * Esta classe carrega as caracteristicas da pagina Menu Principal
+ *
+ */
+public class MenuPrincipalPage {
+	
+	WebDriver driver;
+	
+	By buttonMenuCadastro=By.className("caret");
+	By buttonCadastroCliente=By.xpath(".//*[@id='navbar-1']/ul[1]/li[2]/ul/li[1]/a");
+	
+	public MenuPrincipalPage(WebDriver driver)
+	{
+		this.driver=driver;
+	}
+	
+	public void NavegaCadastroCliente()
+	{
+		driver.findElement(buttonMenuCadastro).click();
+		driver.findElement(buttonCadastroCliente).click();
+	}
+	
+	
+}

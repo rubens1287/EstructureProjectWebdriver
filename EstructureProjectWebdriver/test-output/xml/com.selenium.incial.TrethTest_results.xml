@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Test"
+           tests="4"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="0,000">
+  <properties />
+  
+  
+            <testcase name="TC_11" time="0,000" classname="com.selenium.incial.TrethTest" />
+                <testcase name="TC_9" time="0,000" classname="com.selenium.incial.TrethTest" />
+                <testcase name="TC_10" time="0,000" classname="com.selenium.incial.TrethTest" />
+                <testcase name="TC_12" time="0,000" classname="com.selenium.incial.TrethTest" />
+      
+</testsuite>

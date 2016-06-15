@@ -1,0 +1,33 @@
+/**
+ * 
+ */
+package com.webcom.page;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+/**
+ * @author guilherme.cutovoi
+ *
+ *
+ * Esta pagina contem a lista dos clientes cadastrados 
+ *
+ */
+public class ListaCadastroClientePage {
+
+WebDriver driver;
+	
+	By buttonAdicionaCliente=By.xpath("html/body/div[1]/div/a/input");
+	
+	public ListaCadastroClientePage(WebDriver driver)
+	{
+		this.driver=driver;
+	}
+	
+	public void ClicaButtonAdicionarCliente()
+	{
+		driver.findElement(buttonAdicionaCliente).click();
+	}
+	
+	
+}

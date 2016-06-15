@@ -1,0 +1,5 @@
+package com.selenium.frameworkUtil;
+
+public class DataTable extends Util {
+
+}

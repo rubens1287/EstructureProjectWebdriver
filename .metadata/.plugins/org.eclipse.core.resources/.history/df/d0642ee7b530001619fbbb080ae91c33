@@ -1,0 +1,9 @@
+package com.selenium.incial;
+
+import org.testng.annotations.Test;
+
+public class TrethTest {
+  @Test
+  public void f() {
+  }
+}

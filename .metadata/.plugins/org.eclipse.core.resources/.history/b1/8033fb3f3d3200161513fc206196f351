@@ -1,0 +1,17 @@
+/**
+ * 
+ */
+package com.webcom.page;
+
+/**
+ * @author guilherme.cutovoi
+ *
+ *
+ * Esta pagina contem a lista dos clientes cadastrados 
+ *
+ */
+public class ListaCadastroClientePage {
+
+	
+	
+}

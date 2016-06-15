@@ -1,0 +1,26 @@
+package com.selenium.incial;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class Acesso {
+	
+	@Test(priority=1)
+	public void AcessoSistema() throws InterruptedException{
+		
+		String expected = "Google";
+		
+		System.setProperty("webdriver.ie.driver","C:\\ProjecWebDriver\\EstructureProjectWebdriver\\Drivers\\IEDriverServer.exe");
+		WebDriver driver=new InternetExplorerDriver();
+		driver.get("http://www.google.com");
+		driver.manage().window().maximize();
+		Thread.sleep(2000);
+		String actual = driver.getTitle(); 
+		Assert.assertEquals(actual, expected);
+		driver.close();
+		}
+		
+}
+

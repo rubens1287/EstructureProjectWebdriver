@@ -1,0 +1,67 @@
+package com.selenium.incial;
+
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class Acesso {
+	
+	
+	WebDriver driver;
+	
+	@BeforeClass
+	public void start(){
+		System.setProperty("webdriver.ie.driver","C:\\ProjecWebDriver\\EstructureProjectWebdriver\\Drivers\\IEDriverServer.exe");
+	}
+	
+	
+	@Test(priority=1)
+	public void AcessoSistema() throws InterruptedException{
+		
+		driver = new InternetExplorerDriver();
+		driver.manage().deleteAllCookies();
+		
+		//Step 1
+		driver.get("http://192.168.100.173:8080/webcom/login.do");
+		driver.manage().window().maximize();
+		Thread.sleep(2000);
+		String actual = driver.getTitle(); 
+		Assert.assertEquals(actual, "webcom - login");
+		
+		//Step 2
+		WebElement Usuario = driver.findElement(By.name("j_username"));
+		Usuario.clear();
+		Usuario.sendKeys("admin");
+		Thread.sleep(1000);
+		
+		WebElement PassWord = driver.findElement(By.name("j_password"));
+		PassWord.clear();
+		PassWord.sendKeys("admin");
+		
+		WebElement btnLogar = driver.findElement(By.className("btn btn-lg btn-primary btn-block"));
+		btnLogar.click();
+		
+		WebElement linkSairText = driver.findElement(By.xpath(".//*[@id='bemvindo']/a"));
+		
+		Assert.assertEquals(linkSairText.getText(), "Sair");		
+		Thread.sleep(1000);
+		
+		}
+	
+	@AfterClass
+	public void finaliza() throws IOException{
+		//deleta Cache
+		//Runtime.getRuntime().exec("RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 255");
+		driver.close();
+		driver.quit();
+	}
+		
+}
+

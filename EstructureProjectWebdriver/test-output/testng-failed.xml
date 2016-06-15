@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+  </listeners>
+  <test name="Test(failed)">
+    <classes>
+      <class name="com.webcom.test.VerifyWebComCadastroCliente">
+        <methods>
+          <include name="start"/>
+          <include name="VerifyValidLogin"/>
+          <include name="CleanUp"/>
+        </methods>
+      </class> <!-- com.webcom.test.VerifyWebComCadastroCliente -->
+      <class name="com.webcom.test.VerifyWebComLogin">
+        <methods>
+          <include name="start"/>
+          <include name="CleanUp"/>
+        </methods>
+      </class> <!-- com.webcom.test.VerifyWebComLogin -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
